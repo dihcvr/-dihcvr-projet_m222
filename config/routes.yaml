@@ -1,5 +1,5 @@
 index:
-    path: /test
-    controller: App\Controller\TestController::index
+    path: /admin
+    controller: App\Controller\AdminController::index
 
 
