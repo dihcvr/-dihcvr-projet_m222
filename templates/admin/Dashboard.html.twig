@@ -238,15 +238,30 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a >
+                                    <a href="{{ path('livraisons') }}" >
                                         <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.form-components.main">Livraisons</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                 </li>
-
+                                    <li class="pcoded-hasmenu">
+                                    <a href="{{ path('client_index') }}">
+                                        <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
+                                        <span class="pcoded-mtext"  data-i18n="nav.basic-components.main">Clients</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                    
+                                </li>
+                                <li class="pcoded-hasmenu">
+                                    <a href="{{ path('produit_index') }}">
+                                        <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
+                                        <span class="pcoded-mtext"  data-i18n="nav.basic-components.main">Produits</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                    
+                                </li>
                                  <li class="pcoded-hasmenu">
-                                    <a href="javascript:void(0)">
+                                    <a href="{{ path('commandes') }}">
                                         <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
                                         <span class="pcoded-mtext"  data-i18n="nav.basic-components.main">Commandes</span>
                                         <span class="pcoded-mcaret"></span>
@@ -284,7 +299,7 @@
                                                         <h4> {{ nbr_gerant }} </h4>
                                                         <div>
                                                             <span class="f-left m-t-10 text-muted">
-                                                                <i class="text-c-blue f-16 icofont icofont-warning m-r-10"></i>Get more space
+                                                                <i class="text-c-blue f-16 icofont icofont-warning m-r-10"></i>Total des gérants
                                                             </span>
                                                         </div>
                                                     </div>
@@ -296,11 +311,11 @@
                                                 <div class="card widget-card-1">
                                                     <div class="card-block-small">
                                                         <i class="icofont icofont-ui-home bg-c-pink card1-icon"></i>
-                                                        <span class="text-c-pink f-w-600">Revenue</span>
-                                                        <h4>$23,589</h4>
+                                                        <span class="text-c-pink f-w-600">Vendeurs</span>
+                                                        <h4>{{ nbr_vendeur }}</h4>
                                                         <div>
                                                             <span class="f-left m-t-10 text-muted">
-                                                                <i class="text-c-pink f-16 icofont icofont-calendar m-r-10"></i>Last 24 hours
+                                                                <i class="text-c-pink f-16 icofont icofont-calendar m-r-10"></i>Total des vendeurs
                                                             </span>
                                                         </div>
                                                     </div>
@@ -312,11 +327,11 @@
                                                 <div class="card widget-card-1">
                                                     <div class="card-block-small">
                                                         <i class="icofont icofont-warning-alt bg-c-green card1-icon"></i>
-                                                        <span class="text-c-green f-w-600">Fixed issue</span>
-                                                        <h4>45</h4>
+                                                        <span class="text-c-green f-w-600">Magasiniers</span>
+                                                        <h4>{{ nbr_magasinier }}</h4>
                                                         <div>
                                                             <span class="f-left m-t-10 text-muted">
-                                                                <i class="text-c-green f-16 icofont icofont-tag m-r-10"></i>Tracked via microsoft
+                                                                <i class="text-c-green f-16 icofont icofont-tag m-r-10"></i>Total des magasiniers
                                                             </span>
                                                         </div>
                                                     </div>
@@ -328,11 +343,11 @@
                                                 <div class="card widget-card-1">
                                                     <div class="card-block-small">
                                                         <i class="icofont icofont-social-twitter bg-c-yellow card1-icon"></i>
-                                                        <span class="text-c-yellow f-w-600">Followers</span>
-                                                        <h4>+562</h4>
+                                                        <span class="text-c-yellow f-w-600">Livreurs</span>
+                                                        <h4>{{ nbr_livreur }}</h4>
                                                         <div>
                                                             <span class="f-left m-t-10 text-muted">
-                                                                <i class="text-c-yellow f-16 icofont icofont-refresh m-r-10"></i>Just update
+                                                                <i class="text-c-yellow f-16 icofont icofont-refresh m-r-10"></i>Total des livreurs
                                                             </span>
                                                         </div>
                                                     </div>

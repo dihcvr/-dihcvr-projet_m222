@@ -34,6 +34,18 @@ class NavigationController extends AbstractController
                 if(in_array('ROLE_ADMIN', $utilisateur->getRoles())){
                         return $this->redirectToRoute('admin');
                 }
+                if(in_array('ROLE_GERANT', $utilisateur->getRoles())){
+                        return $this->redirectToRoute('gerant');
+                }
+                if(in_array('ROLE_VENDEUR', $utilisateur->getRoles())){
+                        return $this->redirectToRoute('vendeur');
+                }
+                if(in_array('ROLE_MAGASINIER', $utilisateur->getRoles())){
+                        return $this->redirectToRoute('magasinier');
+                }
+                if(in_array('ROLE_LIVREUR', $utilisateur->getRoles())){
+                        return $this->redirectToRoute('livreur');
+                }
         }
 
 

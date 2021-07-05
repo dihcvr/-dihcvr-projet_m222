@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Comandeline index{% endblock %}
+
+{% block body %}
+    <h1>Comandeline index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Quantite</th>
+                <th>TrackingNumber</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for comandeline in comandelines %}
+            <tr>
+                <td>{{ comandeline.id }}</td>
+                <td>{{ comandeline.quantite }}</td>
+                <td>{{ comandeline.trackingNumber }}</td>
+                <td>
+                    <a href="{{ path('comandeline_show', {'id': comandeline.id}) }}">show</a>
+                    <a href="{{ path('comandeline_edit', {'id': comandeline.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('comandeline_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Comandeline{% endblock %}
+
+{% block body %}
+    <h1>Comandeline</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ comandeline.id }}</td>
+            </tr>
+            <tr>
+                <th>Quantite</th>
+                <td>{{ comandeline.quantite }}</td>
+            </tr>
+            <tr>
+                <th>TrackingNumber</th>
+                <td>{{ comandeline.trackingNumber }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('comandeline_index') }}">back to list</a>
+
+    <a href="{{ path('comandeline_edit', {'id': comandeline.id}) }}">edit</a>
+
+    {{ include('comandeline/_delete_form.html.twig') }}
+{% endblock %}

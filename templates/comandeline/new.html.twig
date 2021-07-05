@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Comandeline{% endblock %}
+
+{% block body %}
+    <h1>Create new Comandeline</h1>
+
+    {{ include('comandeline/_form.html.twig') }}
+
+    <a href="{{ path('comandeline_index') }}">back to list</a>
+{% endblock %}

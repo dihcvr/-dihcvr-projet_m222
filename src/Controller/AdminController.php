@@ -22,6 +22,22 @@ class AdminController extends AbstractController
                         ->setParameter('role', '%"'.'ROLE_GERANT'.'"%')
                         ->getQuery()
                         ->getResult();
+                $nbr_vendeur = $utilisateurRepository->createQueryBuilder('u')
+                        ->andWhere('u.roles LIKE :role')
+                        ->setParameter('role', '%"'.'ROLE_VENDEUR'.'"%')
+                        ->getQuery()
+                        ->getResult();
+                $nbr_magasinier = $utilisateurRepository->createQueryBuilder('u')
+                        ->andWhere('u.roles LIKE :role')
+                        ->setParameter('role', '%"'.'ROLE_MAGASINIER'.'"%')
+                        ->getQuery()
+                        ->getResult();
+                $nbr_livreur = $utilisateurRepository->createQueryBuilder('u')
+                        ->andWhere('u.roles LIKE :role')
+                        ->setParameter('role', '%"'.'ROLE_LIVREUR'.'"%')
+                        ->getQuery()
+                        ->getResult();
+
                 if(!$utilisateur)
                 {
                         $session->set("message", "Merci de vous connecter");
@@ -29,7 +45,13 @@ class AdminController extends AbstractController
                 }
 
                 else if(in_array('ROLE_ADMIN', $utilisateur->getRoles())){
-                        return $this->render('admin/Dashboard.html.twig', ['nbr_gerant' => count($nbr_gerant)]);
+                        return $this->render('admin/Dashboard.html.twig', 
+                        [
+                                'nbr_gerant' => count($nbr_gerant),
+                                'nbr_magasinier' => count($nbr_magasinier),
+                                'nbr_vendeur' => count($nbr_vendeur),
+                                'nbr_livreur' => count($nbr_livreur)
+                        ]);
                 }
                 $session->set("message", "Vous n'avez pas le droit d'acceder à la page admin vous avez été redirigé sur cette page");
                 if($session->has('message'))
@@ -39,7 +61,13 @@ class AdminController extends AbstractController
                         $return['message'] = $message; //on ajoute à l'array de paramètres notre message
                 }
 
-                return $this->render('admin/Dashboard.html.twig', ['user' => $utilisateur, 'nbr_gerant' => count($nbr_gerant)]);
+                 return $this->render('admin/Dashboard.html.twig', 
+                        [
+                                'nbr_gerant' => count($nbr_gerant),
+                                'nbr_magasinier' => count($nbr_magasinier),
+                                'nbr_vendeur' => count($nbr_vendeur),
+                                'nbr_livreur' => count($nbr_livreur)
+                        ]);
     }
 
         /**
@@ -53,33 +81,46 @@ class AdminController extends AbstractController
                         ->setParameter('role', '%"'.'ROLE_GERANT'.'"%')
                         ->getQuery();
                 return $this->render('admin/gerants.html.twig', ['utilisateurs' => $role->getResult()]);
+                
         }
 
         /**
          * @Route("/vendeurs", name="vendeurs")
          */
         
-        public function vendeurs(): Response
-        {
-                return $this->render('admin/vendeurs.html.twig');
+        public function vendeurs(UtilisateurRepository $utilisateurRepository): Response
+        {       
+                $role = $utilisateurRepository->createQueryBuilder('u')
+                        ->andWhere('u.roles LIKE :role')
+                        ->setParameter('role', '%"'.'ROLE_VENDEUR'.'"%')
+                        ->getQuery();
+                return $this->render('admin/vendeurs.html.twig', ['utilisateurs' => $role->getResult()]);
         }
 
         /**
          * @Route("/magasiniers", name="magasiniers")
          */
         
-        public function magasiniers(): Response
+        public function magasiniers(UtilisateurRepository $utilisateurRepository): Response
         {
-                return $this->render('admin/magasiniers.html.twig');
+                $role = $utilisateurRepository->createQueryBuilder('u')
+                        ->andWhere('u.roles LIKE :role')
+                        ->setParameter('role', '%"'.'ROLE_MAGASINIER'.'"%')
+                        ->getQuery();
+                return $this->render('admin/magasiniers.html.twig', ['utilisateurs' => $role->getResult()]);
         }
 
     /**
      * @Route("/livraisons", name="livraisons")
      */
     
-    public function livraisons(): Response
+    public function livraisons(UtilisateurRepository $utilisateurRepository): Response
     {
-        return $this->render('admin/livraisons.html.twig');
+        $role = $utilisateurRepository->createQueryBuilder('u')
+        ->andWhere('u.roles LIKE :role')
+        ->setParameter('role', '%"'.'ROLE_LIVREUR'.'"%')
+        ->getQuery();
+        return $this->render('admin/livraisons.html.twig', ['utilisateurs' => $role->getResult()]);
     }
 }
 

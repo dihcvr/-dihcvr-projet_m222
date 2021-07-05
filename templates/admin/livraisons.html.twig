@@ -43,7 +43,7 @@
         <div class="pcoded-overlay-box"></div>
         <div class="pcoded-container navbar-wrapper">
 
-            <nav class="navbar header-navbar pcoded-header">
+            {# <nav class="navbar header-navbar pcoded-header">
                 <div class="navbar-wrapper">
 
                     <div class="navbar-logo">
@@ -155,7 +155,7 @@
                         
                     </div>
                 </div>
-            </nav>
+            </nav> #}
 
             <div class="pcoded-main-container">
                 <div class="pcoded-wrapper">
@@ -190,20 +190,24 @@
                             </div>
                             <ul class="pcoded-item pcoded-left-item">
                                 <li >
-                                    <a href="{{ path('admin') }}">
+                                    <a href="{{ path('select_home') }}">
                                         <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.dash.main">Dashboard</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                 </li>
+                                {% if app.user %} 
+                                {% if is_granted('ROLE_ADMIN') %}
                                 
-                                <li class="active">
+                                <li >
                                     <a href="{{ path('gerants') }}">
                                         <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.form-components.main">Gérants</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                 </li>
+                                {% endif %} 
+                                {% endif %} 
                             </ul>
                             <ul class="pcoded-item pcoded-left-item">
                                 <li >
@@ -220,7 +224,23 @@
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                 </li>
-                                <li>
+                                <li class="pcoded-hasmenu">
+                                    <a href="{{ path('client_index') }}">
+                                        <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
+                                        <span class="pcoded-mtext"  data-i18n="nav.basic-components.main">Clients</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                    
+                                </li>
+                                <li class="pcoded-hasmenu">
+                                    <a href="{{ path('produit_index') }}">
+                                        <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
+                                        <span class="pcoded-mtext"  data-i18n="nav.basic-components.main">Produits</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                    
+                                </li>
+                                <li class="active">
                                     <a href="{{ path('livraisons') }}">
                                         <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.form-components.main">Livraisons</span>
@@ -228,10 +248,10 @@
                                     </a>
                                 </li>
 
-                                 <li class="pcoded-hasmenu">
-                                    <a href="javascript:void(0)">
+                                  <li class="pcoded-hasmenu">
+                                    <a href="{{ path('commandes') }}">
                                         <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
-                                        <span class="pcoded-mtext"  data-i18n="nav.basic-components.main">Test</span>
+                                        <span class="pcoded-mtext"  data-i18n="nav.basic-components.main">Commandes</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                     
@@ -239,7 +259,7 @@
                                 <li class="pcoded-hasmenu ">
                                     <a href="javascript:void(0)">
                                         <span class="pcoded-micon"><i class="ti-direction-alt"></i><b>M</b></span>
-                                        <span class="pcoded-mtext" data-i18n="nav.menu-levels.main">Test</span>
+                                        <span class="pcoded-mtext" data-i18n="nav.menu-levels.main">Reclamations</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                    
@@ -263,8 +283,7 @@
                                                 <div class="page-header-title">
                                                     <i class="icofont icofont-table bg-c-blue"></i>
                                                     <div class="d-inline">
-                                                        <h4>Gérants</h4>
-                                                        <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
+                                                        <h4>Livreurs</h4>
                                                     </div>
                                                 </div>
                                             </div>
@@ -278,7 +297,7 @@
                                                     </li>
                                                     <li class="breadcrumb-item"><a href="#!">Admin</a>
                                                     </li>
-                                                    <li class="breadcrumb-item"><a href="#!">gerants</a>
+                                                    <li class="breadcrumb-item"><a href="#!">Livreurs</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -291,42 +310,50 @@
                                 <div class="page-body">
                                      <!-- Hover table card start -->
                                     <div class="card">
-                                        <div class="card-header">
-                                            <h5>Hover table</h5>
-                                            <span>use class <code>table-hover</code> inside table element</span>
+                                        {# <div class="card-header">
+                                            
                                             <div class="card-header-right">    <ul class="list-unstyled card-option">        <li><i class="icofont icofont-simple-left "></i></li>        <li><i class="icofont icofont-maximize full-card"></i></li>        <li><i class="icofont icofont-minus minimize-card"></i></li>        <li><i class="icofont icofont-refresh reload-card"></i></li>        <li><i class="icofont icofont-error close-card"></i></li>    </ul></div>
-                                        </div>
+                                        </div> #}
                                         <div class="card-block table-border-style">
                                             <div class="table-responsive">
                                                 <table class="table table-hover">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>#</th>
-                                                            <th>First Name</th>
-                                                            <th>Last Name</th>
-                                                            <th>Username</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <th scope="row">1</th>
-                                                            <td>Mark</td>
-                                                            <td>Otto</td>
-                                                            <td>@mdo</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">2</th>
-                                                            <td>Jacob</td>
-                                                            <td>Thornton</td>
-                                                            <td>@fat</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">3</th>
-                                                            <td>Larry</td>
-                                                            <td>the Bird</td>
-                                                            <td>@twitter</td>
-                                                        </tr>
-                                                    </tbody>
+                                                           <thead>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Adresse</th>
+                <th>Whatsapp Personel</th>
+                <th>Numéro Tel</th>
+                <th>Roles</th>
+                <th colspan="2">actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for utilisateur in utilisateurs %}
+            <tr>
+                <td>{{ utilisateur.id }}</td>
+                <td>{{ utilisateur.email }}</td>
+                <td>{{ utilisateur.nom }}</td>
+                <td>{{ utilisateur.prenom }}</td>
+                <td>{{ utilisateur.adresse }}</td>
+                <td>{{ utilisateur.whatsappperso }}</td>
+                <td>{{ utilisateur.telsav }}</td>
+                <td>{{ utilisateur.roles ? utilisateur.roles|json_encode : '' }}</td>
+                <td>
+                     {{ include('utilisateur/_delete_form.html.twig') }}
+                     </td>
+                     <td>
+                    <a href="{{ path('utilisateur_edit', {'id': utilisateur.id}) }}" class="btn btn-primary">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
                                                 </table>
                                             </div>
                                         </div>
