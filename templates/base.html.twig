@@ -9,15 +9,15 @@
                 {% endblock %}
         </head>
         <body>
-                <nav class="navbar navbar-light bg-light">
+                <nav class="navbar navbar-light bg-white">
                         <a class="navbar-brand" href="{{ path('home') }}">Accueil</a>
                         {% if app.user %}
-                                <a class="btn btn-outline-info" href="{{ path('membre') }}">Page membre</a>
+                                {# <a class="btn btn-outline-info" href="{{ path('membre') }}">Page membre</a>
                                 {% if is_granted('ROLE_ADMIN') %}
                                         <a class="btn btn-outline-warning" href="{{ path('admin') }}">Page admin</a>
-                                {% endif %}
+                                {% endif %} #}
                                 <div>
-                                        Bonjour {{ app.user.username }} <a class="btn btn-sm btn-danger" href="{{ path('app_logout') }}">Déconnexion</a>
+                                        Bonjour, {{ app.user.prenom }} {{ app.user.nom }} <a class="btn btn-sm btn-danger" href="{{ path('app_logout') }}">Déconnexion</a>
                                 </div>
                         {% else %}
                                 <div>
@@ -26,7 +26,7 @@
                                 </div>
                         {% endif %}
                 </nav>
-                <div class="container">
+                <div>
                         {% if message is defined %}
                                 <div class="alert alert-danger">
                                         {{ message }}
@@ -36,9 +36,9 @@
                         {% endblock %}
                 </div>
                 <footer class="navbar-light bg-light">
-                        <div class="footer-copyright text-center py-3">© 2020 Copyright:
+                        {# <div class="footer-copyright text-center py-3">© 2020 Copyright:
                                 <a href="https://www.univ-orleans.fr/iut-orleans/informatique/intra/tuto/php/"> Gérard Rozsavolgyi & Sylvain Austruy</a>
-                        </div>
+                        </div> #}
                 </footer>
                         {% block javascripts %}
                         <script

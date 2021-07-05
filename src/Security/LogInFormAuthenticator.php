@@ -61,7 +61,7 @@ class LogInFormAuthenticator extends AbstractLoginFormAuthenticator
                 return new RedirectResponse($targetPath);
         }
         //on renvoie à la liste des utilisateurs
-        return new RedirectResponse($this->urlGenerator->generate('utilisateur_index'));
+        return new RedirectResponse($this->urlGenerator->generate('select_home'));
     }
 
     protected function getLoginUrl(Request $request): string

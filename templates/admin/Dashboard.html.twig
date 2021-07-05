@@ -63,7 +63,7 @@
         <div class="pcoded-overlay-box"></div>
         <div class="pcoded-container navbar-wrapper">
 
-            <nav class="navbar header-navbar pcoded-header">
+            {# <nav class="navbar header-navbar pcoded-header">
                 <div class="navbar-wrapper">
 
                     <div class="navbar-logo">
@@ -139,7 +139,7 @@
                             <li class="user-profile header-notification">
                                 <a href="#!">
                                     <img src="assets/images/avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
-                                    <span>John Doe</span>
+                                    <span>{{ app.user.nom }} {{ app.user.prenom }}<span>
                                     <i class="ti-angle-down"></i>
                                 </a>
                                 <ul class="show-notification profile-notification">
@@ -164,8 +164,8 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="auth-normal-sign-in.html">
-                                            <i class="ti-layout-sidebar-left"></i> Logout
+                                        <a href="auth-normal-sign-in.html" href="{{ path('app_logout') }}">
+                                            <i class="ti-layout-sidebar-left"></i> Déconnexion
                                         </a>
                                     </li>
                                 </ul>
@@ -173,7 +173,7 @@
                         </ul>
                     </div>
                 </div>
-            </nav>
+            </nav> #}
             <div class="pcoded-main-container">
                 <div class="pcoded-wrapper">
                      <nav class="pcoded-navbar">
@@ -183,7 +183,7 @@
                                 <div class="main-menu-header">
                                     <img class="img-40 img-radius" src="assets/images/avatar-4.jpg" alt="User-Profile-Image">
                                     <div class="user-details">
-                                        <span>LAKHL Rachid</span>
+                                        <span>{{ app.user.prenom }} {{ app.user.nom }}</span>
                                         <span id="more-details">Administrateur<i class="ti-angle-down"></i></span>
                                     </div>
                                 </div>
@@ -238,7 +238,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ path('livraisons') }}">
+                                    <a >
                                         <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.form-components.main">Livraisons</span>
                                         <span class="pcoded-mcaret"></span>
@@ -280,8 +280,8 @@
                                                 <div class="card widget-card-1">
                                                     <div class="card-block-small">
                                                         <i class="icofont icofont-pie-chart bg-c-blue card1-icon"></i>
-                                                        <span class="text-c-blue f-w-600">Use space</span>
-                                                        <h4>49/50GB</h4>
+                                                        <span class="text-c-blue f-w-600">Gérants</span>
+                                                        <h4> {{ nbr_gerant }} </h4>
                                                         <div>
                                                             <span class="f-left m-t-10 text-muted">
                                                                 <i class="text-c-blue f-16 icofont icofont-warning m-r-10"></i>Get more space

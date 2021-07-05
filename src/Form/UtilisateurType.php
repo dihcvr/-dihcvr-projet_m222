@@ -29,6 +29,11 @@ class UtilisateurType extends AbstractType
                     ],
                 ]])
             ->add('password', PasswordType::class)
+            ->add('nom')
+            ->add('prenom')
+            ->add('adresse')
+            ->add('whatsapp_perso')
+            ->add('tel_sav')
             ;
     }
 

@@ -35,6 +35,31 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $password;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $nom;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $prenom;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $adresse;
+
+    /**
+     * @ORM\Column(type="string", length=20, nullable=true)
+     */
+    private $whatsapp_perso;
+
+    /**
+     * @ORM\Column(type="string", length=20, nullable=true)
+     */
+    private $tel_sav;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -122,5 +147,65 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getNom(): ?string
+    {
+        return $this->nom;
+    }
+
+    public function setNom(?string $nom): self
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    public function getPrenom(): ?string
+    {
+        return $this->prenom;
+    }
+
+    public function setPrenom(?string $prenom): self
+    {
+        $this->prenom = $prenom;
+
+        return $this;
+    }
+
+    public function getAdresse(): ?string
+    {
+        return $this->adresse;
+    }
+
+    public function setAdresse(?string $adresse): self
+    {
+        $this->adresse = $adresse;
+
+        return $this;
+    }
+
+    public function getWhatsappPerso(): ?string
+    {
+        return $this->whatsapp_perso;
+    }
+
+    public function setWhatsappPerso(?string $whatsapp_perso): self
+    {
+        $this->whatsapp_perso = $whatsapp_perso;
+
+        return $this;
+    }
+
+    public function getTelSav(): ?string
+    {
+        return $this->tel_sav;
+    }
+
+    public function setTelSav(?string $tel_sav): self
+    {
+        $this->tel_sav = $tel_sav;
+
+        return $this;
     }
 }
