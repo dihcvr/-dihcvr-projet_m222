@@ -1,6 +1,6 @@
 # Projet M22
 
-Projet de programmation du module M22
+Projet de programmation front/back-end du module M22
 
 Réalisé par : 
 - FATIH Salah Eddine
